@@ -33,4 +33,46 @@ body {
 }
 
 #numpad {
+	margin: 1em 2em 1em 2em;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+  	grid-template-rows: 1fr 1fr 1fr;
+  	align-items: stretch;
+}
+
+#operators {
+	margin: 3em 2em 1em 2em;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-template-rows: 1fr;
+	align-items: stretch;
+}
+
+.numpad-btn {
+	height: 5em;
+	background-color: white;
+	margin:.2em .2em 0 0;
+	font-size: 1em;
+	font-weight: bold;
+	border-radius: .2em;
+}
+
+.operator-btn {
+	height: 3.5em;
+	background-color: #BEADAD;
+	font-weight: bold;
+	font-size: 1em;
+	border-radius: .2em;
+}
+
+#equals {
+	width: 7em;
+	background-color: #AC8686;
+}
+
+#zero {
+	grid-column-start: 1;
+  	grid-column-end: span 2;
+  	grid-row-start: 4;
+  	grid-row-end: 4;
 }
