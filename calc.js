@@ -16,7 +16,7 @@ function divide(x, y) {
 	return x / y;
 }
 
-function operate(num1, operator, num2) {
+function calculate(num1, operator, num2) {
 	if (operator == "+") {
 		return add(num1, num2);
 	} else if (operator == "-") {
@@ -31,4 +31,7 @@ function operate(num1, operator, num2) {
 }
 
 
-console.log(operate(1, "+", 2));
+var numberBtn = document.querySelectorAll('.numpad-btn');
+numberBtn.addEventListener('click', function(){
+	console.log(this.id);
+});

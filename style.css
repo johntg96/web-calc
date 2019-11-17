@@ -19,7 +19,7 @@ body {
 }
 
 #display {
-	width: 18em;
+	width: 21em;
 	height: 6em;
 	background-color: #ADA79C;
 	margin: 3em auto .3em auto;
@@ -41,20 +41,28 @@ body {
 }
 
 #operators {
-	margin: 3em 2em 1em 2em;
+	margin: 1.5em 2em 1em 2em;
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
 	grid-template-rows: 1fr;
 	align-items: stretch;
 }
 
 .numpad-btn {
-	height: 5em;
+	height: 4.5em;
 	background-color: white;
 	margin:.2em .2em 0 0;
 	font-size: 1em;
 	font-weight: bold;
 	border-radius: .2em;
+}
+
+#equalsclear {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr;
+	align-items: stretch;
+	margin: 0 2em 0 2em;
 }
 
 .operator-btn {
@@ -66,7 +74,8 @@ body {
 }
 
 #equals {
-	width: 7em;
+	grid-column-start: 2;
+	grid-column-end: span 3;
 	background-color: #AC8686;
 }
 
