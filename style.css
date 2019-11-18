@@ -6,7 +6,7 @@ body {
 
 #calculator {
 	width: 25em;
-	height: 40em;
+	height: 41em;
 	background-color: #909090;
 	left: 0;
 	right: 0;
@@ -23,7 +23,6 @@ body {
 	height: 6em;
 	background-color: #ADA79C;
 	margin: 3em auto .3em auto;
-	position: relative;
 	-moz-box-shadow:    inset 0 0 10px #000000;
    	-webkit-box-shadow: inset 0 0 10px #000000;
    	box-shadow:         inset 0 0 10px #000000;
@@ -51,10 +50,13 @@ body {
 .numpad-btn {
 	height: 4.5em;
 	background-color: white;
-	margin:.2em .2em 0 0;
+	margin:.3em 0 0 .3em;
 	font-size: 1em;
-	font-weight: bold;
 	border-radius: .2em;
+	-webkit-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
+	box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
+	border-style: none;
 }
 
 #equalsclear {
@@ -62,15 +64,24 @@ body {
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-template-rows: 1fr;
 	align-items: stretch;
+	margin-left: .3em;
 	margin: 0 2em 0 2em;
+	-webkit-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
+	box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
+	border-style: none;
 }
 
 .operator-btn {
+	margin-left: .3em;
 	height: 3.5em;
 	background-color: #BEADAD;
-	font-weight: bold;
 	font-size: 1em;
 	border-radius: .2em;
+	-webkit-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
+	box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
+	border-style: none;
 }
 
 #equals {

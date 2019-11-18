@@ -8,29 +8,29 @@
 </head>
 <body>
 	<div id="calculator">
-		<div id="display">test test</div>
+		<div id="display"></div>
 		<div id="operators">
-			<button class="operator-btn" id="addition">+</button>
-			<button class="operator-btn" id="subtraction">-</button>
-			<button class="operator-btn" id="multiplication">*</button>
-			<button class="operator-btn" id="division">/</button>
+			<button class="operator-btn" id="addition"><span style="font-size:2em;">+</span></button>
+			<button class="operator-btn" id="subtraction"><span style="font-size:2em;">-</span></button>
+			<button class="operator-btn" id="multiplication"><span style="font-size:2em;">*</span></button>
+			<button class="operator-btn" id="division"><span style="font-size:2em;">/</span></button>
 		</div>
 		<div id="numpad">
-			<button class="numpad-btn" id="7">7</button>
-			<button class="numpad-btn" id="8">8</button>
-			<button class="numpad-btn" id="9">9</button>
-			<button class="numpad-btn" id="4">4</button>
-			<button class="numpad-btn" id="5">5</button>
-			<button class="numpad-btn" id="6">6</button>
-			<button class="numpad-btn" id="1">1</button>
-			<button class="numpad-btn" id="2">2</button>
-			<button class="numpad-btn" id="3">3</button>
-			<button class="numpad-btn" id="zero">0</button>
-			<button class="numpad-btn" id="dot">.</button>
+			<button class="numpad-btn" id="7" onclick="sendToDisplay(7)"><span style="font-size:2em;">7</span></button>
+			<button class="numpad-btn" id="8" onclick="sendToDisplay(8)"><span style="font-size:2em;">8</span></button>
+			<button class="numpad-btn" id="9" onclick="sendToDisplay(9)"><span style="font-size:2em;">9</span></button>
+			<button class="numpad-btn" id="4" onclick="sendToDisplay(4)"><span style="font-size:2em;">4</span></button>
+			<button class="numpad-btn" id="5" onclick="sendToDisplay(5)"><span style="font-size:2em;">5</span></button>
+			<button class="numpad-btn" id="6" onclick="sendToDisplay(6)"><span style="font-size:2em;">6</span></button>
+			<button class="numpad-btn" id="1" onclick="sendToDisplay(1)"><span style="font-size:2em;">1</span></button>
+			<button class="numpad-btn" id="2" onclick="sendToDisplay(2)"><span style="font-size:2em;">2</span></button>
+			<button class="numpad-btn" id="3" onclick="sendToDisplay(3)"><span style="font-size:2em;">3</span></button>
+			<button class="numpad-btn" id="zero" onclick="sendToDisplay(0)"><span style="font-size:2em;">0</span></button>
+			<button class="numpad-btn" id="dot" onclick="sendToDisplay('.')"><span style="font-size:2em;">.</span></button>
 		</div>
 		<div id="equalsclear">
-			<button class="operator-btn" id="clear">C</button>
-			<button class="operator-btn" id="equals">=</button>
+			<button class="operator-btn" id="clear"><span style="font-size:2em;">C</span></button>
+			<button class="operator-btn" id="equals"><span style="font-size:2em;">=</span></button>
 		</div>
 	</div>
 	<script type="text/javascript" src="calc.js"></script>
