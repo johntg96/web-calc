@@ -1,5 +1,16 @@
 // calc.js
 
+var calcMem = [];
+var display = [];
+var zero = '0';
+var result;
+
+var screen = document.querySelector('#display');
+
+function updateDisplay(toDisplay) {
+	screen.innerHTML = "<span style='font-size:3em; line-height:2em;'>" + toDisplay + "</span>";
+}
+
 function add(x, y) {
 	return x + y;
 }
@@ -16,35 +27,106 @@ function divide(x, y) {
 	return x / y;
 }
 
-function calculate(num1, operator, num2) {
-	if (operator == "+") {
-		return add(num1, num2);
-	} else if (operator == "-") {
-		return subtract(num1, num2);
-	} else if (operator == "*") {
-		return multiply(num1, num2);
-	} else if (operator == "/") {
-		return divide(num1, num2);
+function calculate(num1, operator, startingPoint) {
+	var num2;
+
+	for (i = startingPoint + 1; i < calcMem.length; i++) {
+		if (calcMem[i] == '*') {
+			calculate(result, '*', i)
+		} else if (calcMem[i] == '/') {
+			calculate(result, '/', i)
+		} else if (calcMem[i] == '+') {
+			calculate(result, '+', i)
+		} else if (calcMem[i] == '-') {
+			calculate(result, '-', i)
+		} else if (num2 != undefined) {
+			num2 += calcMem[i].toString();
+		} else {
+			num2 = calcMem[i].toString();
+		}
+	}
+
+	parseInt(num1);
+	parseInt(num2);
+
+	if (operator == '+') {
+		result = (add(num1, num2));
+		updateDisplay(result);
+		clearMem();
+	} else if (operator == '-') {
+		result = (subtract(num1, num2));
+		updateDisplay(result);
+		clearMem();
+	} else if (operator == '*') {
+		result = (multiply(num1, num2));
+		updateDisplay(result);
+		clearMem();
 	} else {
-		return "Incorrect operator";
+		result = (divide(num1, num2));
+		updateDisplay(result);
+		clearMem();
 	}
 }
 
-var displayMemory = null;
+function operate() {
+	var num1;
 
-function sendToDisplay(num) {
-	if (displayMemory != null && typeof num == 'number') {
-		displayMemory = displayMemory.toString() + num.toString();
-	} else if (displayMemory != null && isNaN(num)) {
-		displayMemory = displayMemory + num;
-	} else if (displayMemory == null && isNaN(num)) {
-		displayMemory = num;
+	// check to see if calcMem actually contains anything first and that this is the first calculation of the equation
+	if (calcMem.length != 0 && result == undefined) {
+		// check if an operator button has been pressed
+		if (calcMem.includes('*') || calcMem.includes('/') || calcMem.includes('-') || calcMem.includes('+')) {
+			for (i = 0; i < calcMem.length; i++) {
+				// if the first number is an operator, throw an error
+				if (calcMem[i] == 0 && calcMem[i] == '+' || calcMem[i] == 0 && calcMem[i] == '-' || calcMem[i] == 0 && calcMem[i] == '*' || calcMem[i] == 0 && calcMem[i] == '/') {
+					console.log('error: cannot have operator as first condition');
+				// if loop hits an operator, stop and pass first number along with operator to calculate() function
+				} else if (calcMem[i] == '*') {
+					calculate(num1, '*', i);
+				} else if (calcMem[i] == '/') {
+					calculate(num1, '/', i);
+				} else if (calcMem[i] == '+') {
+					calculate(num1, '+', i);
+				} else if (calcMem[i] == '-') {
+					calculate(num1, '-', i);
+				} else if (num1 === undefined) {
+					num1 = calcMem[i].toString();
+				} else {
+					num1 = num1 + calcMem[i].toString();
+				}
+			}
+		} else {
+				console.log('no operator has been chosen');
+		}
 	} else {
-		displayMemory = num.toString();
+		console.log('error, must have input');
 	}
-	
-	const display = document.querySelector('#display');
-	display.innerHTML = "<span style='font-size:3em; line-height:2em;'>" + displayMemory + "</span>";
+}
+
+function memory(btn) {
+	calcMem.push(btn);
+	display.push(btn);
+	console.log(calcMem);
+
+	if (display.length > 6) {
+		display.shift()
+	}
+
+	updateDisplay(display.join(''));
+}
+
+function clearMem() {
+	calcMem = [];
+	display = []
+	result = undefined;
+	console.log('calcMem cleared');
+}
+
+function clearDisplay() {
+	calcMem = [];
+	display = [];
+	result = undefined;
+	console.log('calcMem cleared');
+	updateDisplay('0');
 }
 
 
